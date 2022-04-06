@@ -26,6 +26,7 @@ function generateNumber(){
 
 function combatti(){
     testo.innerHTML = `<div class="setter"></div>`
+    caselle.innerHTML = ''
     for(let d = 1; d <= numeri.length; d++){
         let circle = document.createElement('input')
         circle.setAttribute('id', `${d}`)
@@ -41,7 +42,7 @@ function timer(){
     for(let i = 0; i < numeri.length; i++){
         testo.innerHTML += `<p>${numeri[i]}</p>`
     }
-    setTimeout( combatti, 30000)
+    setTimeout( combatti, 3000)
 }
 
 function check(){
@@ -57,11 +58,12 @@ function check(){
     mieiNumeri.push(parseInt(four.value))
     mieiNumeri.push(parseInt(five.value))
     console.log(mieiNumeri)
+    testo.innerHTML = ''
     for(let c = 0; c<numeri.length; c++){
         if(numeri[c] === mieiNumeri[c]){
-            testo.innerHTML +=`<p>Corretto</p>`
+            testo.innerHTML +=`<p class="corretto">Corretto</p>`
         } else {
-            testo.innerHTML +=`<p>Errato</p>`
+            testo.innerHTML +=`<p class="sbagliato">Errato</p>`
         }
     }
 }
